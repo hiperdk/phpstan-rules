@@ -1,0 +1,59 @@
+# hiperdk/phpstan-rules
+
+[![CI](https://github.com/hiperdk/phpstan-rules/actions/workflows/ci.yml/badge.svg)](https://github.com/hiperdk/phpstan-rules/actions/workflows/ci.yml)
+[![Release](https://github.com/hiperdk/phpstan-rules/actions/workflows/release.yml/badge.svg)](https://github.com/hiperdk/phpstan-rules/actions/workflows/release.yml)
+[![Release](https://img.shields.io/github/v/release/hiperdk/phpstan-rules.svg)](https://github.com/hiperdk/phpstan-rules/releases/latest)
+[![License](https://img.shields.io/github/license/hiperdk/phpstan-rules)](LICENSE)
+
+## Rules list
+###  You should not have a untyped const
+ ❌
+ ```php
+public const x = 'y';
+```
+
+✅
+```php
+public const string x = 'y';
+```
+
+## Installation
+
+We assume that [PHPStan](https://phpstan.org/) is already installed in your project.
+
+To use this extension, require it in [Composer](https://getcomposer.org/):
+
+```bash
+composer require --dev hiperdk/phpstan-rules
+```
+
+If you also install [phpstan/extension-installer](https://github.com/phpstan/extension-installer) then you're all set!
+
+<details>
+  <summary>Manual installation</summary>
+
+If you don't want to use `phpstan/extension-installer`, include phpstan-strict-rules.neon in your project's PHPStan config:
+
+```yml
+includes:
+    - vendor/hiperdk/phpstan-rules/extension.neon
+```
+</details>
+
+## Development setup
+
+### Requirements
+- Docker
+- Docker compose
+- Make
+
+### Getting started
+```
+# Clone the repository
+$ git clone git@github.com:hiperdk/phpstan-rules.git
+$ cd phpstan-rules
+$ make
+# Now you have shell with php and use the following examples...
+$ composer phpunit
+$ composer phpstan
+```

@@ -1,0 +1,10 @@
+services:
+  php:
+    working_dir: /usr/share/hiper/phpstan-rules
+    user: "${DOCKER_UID:-1000}:${DOCKER_UID:-1000}"
+    volumes:
+      - ./:/usr/share/hiper/phpstan-rules
+    build:
+        context: .
+        args:
+          PHP_VERSION: ${PHP_VERSION:-8}

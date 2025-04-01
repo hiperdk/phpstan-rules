@@ -1,0 +1,41 @@
+name: CI
+on:
+    push:
+        branches:
+            - '**'
+
+jobs:
+    PHPUnit:
+        runs-on: ubuntu-latest
+        timeout-minutes: 5
+        strategy:
+            fail-fast: false
+            matrix:
+                php_version:
+                    - 8.3
+                    - 8.4
+                composer_extra_args:
+                    - '--prefer-lowest'
+                    - '--prefer-stable'
+
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: "Build container"
+              run: DOCKER_UID=${UID} PHP_VERSION=${{ matrix.php_version }} docker compose build
+
+            - name: "Start container"
+              run: DOCKER_UID=${UID} docker compose run --detach --name php-container php sleep infinity
+
+            - name: "composer validate"
+              run: docker exec php-container composer validate --strict
+
+            - name: "composer install"
+              run: docker exec php-container composer update --classmap-authoritative ${{ matrix.composer_extra_args }}
+
+            - name: "Run PHPStan"
+              run: docker exec php-container composer phpstan
+
+            - name: "Run PHPUnit"
+              if: always()
+              run: docker exec php-container composer phpunit

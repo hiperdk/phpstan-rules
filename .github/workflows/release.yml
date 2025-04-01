@@ -1,0 +1,31 @@
+name: Release
+on:
+    push:
+        tags:
+            - "[0-9]+.[0-9]+.[0-9]+"
+
+concurrency:
+    group: release
+jobs:
+    github:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@main
+            - uses: softprops/action-gh-release@v2
+              with:
+                  generate_release_notes: true
+    packagist:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Inform packagist
+              env:
+                  PACKAGIST_USERNAME: hiper-man
+              run: |
+                RESPONSE=$(curl -X POST \
+                    -H 'Content-Type:application/json' \
+                    'https://packagist.org/api/update-package?username=${{ env.PACKAGIST_USERNAME }}&apiToken=${{ secrets.HIPER_MAN_PACKAGIST_SAFE_TOKEN }}' \
+                    -d '{"repository":"${{ github.server_url }}/${{ github.repository }}"}')
+                if [[ $RESPONSE != *"success"* ]]; then
+                    echo "Error: $RESPONSE"
+                    exit 1
+                fi
