@@ -15,7 +15,8 @@
     ],
     "config": {
         "lock": false,
-        "sort-packages": true
+        "sort-packages": true,
+        "cache-dir": ".composer-cache"
     },
     "keywords": [
         "static analysis"
