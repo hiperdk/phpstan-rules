@@ -14,6 +14,9 @@ jobs:
                 php_version:
                     - 8.3
                     - 8.4
+                composer_version:
+                    - lts
+                    - latest
                 composer_extra_args:
                     - '--prefer-lowest'
                     - '--prefer-stable'
@@ -22,7 +25,7 @@ jobs:
             - uses: actions/checkout@v4
 
             - name: "Build container"
-              run: DOCKER_UID=${UID} PHP_VERSION=${{ matrix.php_version }} docker compose build
+              run: DOCKER_UID=${UID} PHP_VERSION=${{ matrix.php_version }} COMPOSER_VERSION=${{ matrix.composer_version }} docker compose build
 
             - name: "Start container"
               run: DOCKER_UID=${UID} docker compose run --detach --name php-container php sleep infinity
