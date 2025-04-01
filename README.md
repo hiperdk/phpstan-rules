@@ -57,3 +57,11 @@ $ make
 $ composer phpunit
 $ composer phpstan
 ```
+
+## Releasing new version
+```bash
+# Replace 1.0.0 with the version you want to release
+$ git tag -m "1.0.0" 1.0.0
+$ git push origin 1.0.0
+# GitHub Actions will automatically create a new release on GitHub and Packagist
+```
