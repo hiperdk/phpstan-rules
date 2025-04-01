@@ -30,7 +30,7 @@ jobs:
             - name: "composer validate"
               run: docker exec php-container composer validate --strict
 
-            - name: "composer install"
+            - name: "composer update"
               run: docker exec php-container composer update --classmap-authoritative ${{ matrix.composer_extra_args }}
 
             - name: "Run PHPStan"
