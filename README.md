@@ -3,7 +3,7 @@
 [![CI](https://github.com/hiperdk/phpstan-rules/actions/workflows/ci.yml/badge.svg)](https://github.com/hiperdk/phpstan-rules/actions/workflows/ci.yml)
 [![Release](https://github.com/hiperdk/phpstan-rules/actions/workflows/release.yml/badge.svg)](https://github.com/hiperdk/phpstan-rules/actions/workflows/release.yml)
 [![Release](https://img.shields.io/github/v/release/hiperdk/phpstan-rules.svg)](https://github.com/hiperdk/phpstan-rules/releases/latest)
-![Packagist Version](https://img.shields.io/packagist/v/hiperdk/phpstan-rules)
+[![Packagist Version](https://img.shields.io/packagist/v/hiperdk/phpstan-rules)](https://packagist.org/packages/hiperdk/phpstan-rules)
 [![License](https://img.shields.io/github/license/hiperdk/phpstan-rules)](LICENSE)
 
 ## Rules list
