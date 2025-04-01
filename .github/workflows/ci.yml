@@ -27,15 +27,15 @@ jobs:
             - name: "Start container"
               run: DOCKER_UID=${UID} docker compose run --detach --name php-container php sleep infinity
 
-            - name: "composer validate"
+            - name: "Run composer validate"
               run: docker exec php-container composer validate --strict
 
-            - name: "composer update"
+            - name: "Run composer update"
               run: docker exec php-container composer update --classmap-authoritative ${{ matrix.composer_extra_args }}
 
-            - name: "Run PHPStan"
+            - name: "Run composer phpstan"
               run: docker exec php-container composer phpstan
 
-            - name: "Run PHPUnit"
+            - name: "Run composer phpunit"
               if: always()
               run: docker exec php-container composer phpunit
