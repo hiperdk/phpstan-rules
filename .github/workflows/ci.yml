@@ -39,3 +39,6 @@ jobs:
             - name: "Run composer phpunit"
               if: always()
               run: docker exec php-container composer phpunit
+
+            - name: "Stop container"
+              run: docker rm --force php-container
