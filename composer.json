@@ -1,5 +1,5 @@
 {
-    "name": "hiper/phpstan-rules",
+    "name": "hiperdk/phpstan-rules",
     "description": "PHPStan rules by Hiper",
     "type": "phpstan-extension",
     "license": "GPL-3.0-or-later",
