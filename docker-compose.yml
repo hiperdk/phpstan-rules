@@ -8,3 +8,4 @@ services:
         context: .
         args:
           PHP_VERSION: ${PHP_VERSION:-8}
+          COMPOSER_VERSION: ${COMPOSER_VERSION:-lts}
