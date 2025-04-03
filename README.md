@@ -54,7 +54,7 @@ includes:
 $ git clone git@github.com:hiperdk/phpstan-rules.git
 $ cd phpstan-rules
 $ make
-# Now you have shell with php and use the following examples...
+# You now have a shell with PHP and can run the following commands:
 $ composer phpunit
 $ composer phpstan
 ```
