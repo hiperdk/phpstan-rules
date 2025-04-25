@@ -1,4 +1,5 @@
 {
+    "version": "1.0.1",
     "name": "hiperdk/phpstan-rules",
     "description": "PHPStan rules by Hiper",
     "type": "phpstan-extension",
@@ -11,6 +12,10 @@
         {
             "name": "Frederik Hørgreen",
             "homepage": "https://github.com/frederikhs"
+        },
+        {
+            "name": "Kim Winther Carlsen",
+            "homepage": "https://github.com/krchiper"
         }
     ],
     "config": {
@@ -39,6 +44,11 @@
     "autoload": {
         "psr-4": {
             "Hiper\\PHPStan\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\": "tests/test-fixtures"
         }
     },
     "scripts": {
