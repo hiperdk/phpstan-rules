@@ -3,3 +3,7 @@ services:
     class: Hiper\PHPStan\Rules\TypedConstantRule
     tags:
       - phpstan.rules.rule
+  -
+    class: Hiper\PHPStan\Rules\DomainDrivenDesignRule
+    tags:
+      - phpstan.rules.rule
