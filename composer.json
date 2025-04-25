@@ -1,5 +1,4 @@
 {
-    "version": "1.0.1",
     "name": "hiperdk/phpstan-rules",
     "description": "PHPStan rules by Hiper",
     "type": "phpstan-extension",
